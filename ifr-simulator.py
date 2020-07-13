@@ -36,7 +36,7 @@ total_chance = 0
 while True:
 	new_infections = num_new_infected(party_sim)
 	chance = chance_of_this_permutation(party_sim)
-	print(party_sim, new_infections, chance)
+	print("{} {:5.2f} infections {:.2%}".format(party_sim, new_infections, chance))
 	expected_infections += new_infections * chance
 	total_chance += chance
 	if 'U' not in party_sim:
