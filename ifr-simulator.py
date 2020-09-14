@@ -31,6 +31,7 @@ def chance_of_this_permutation(group):
 		result *= ASYMPTOMATIC_INFECTED_CHANCE if item is 'I' else NON_INFECTED_CHANCE
 	return result * nCombinations(len(group), group.count('I'))
 
+
 expected_infections = 0
 total_chance = 0
 while True:
