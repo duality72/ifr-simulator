@@ -6,6 +6,9 @@ name: CI
 # events but only for the master branch
 on:
   workflow_dispatch:
+      dt_name:
+        description: 'Name of the deployable target'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,5 +36,5 @@ jobs:
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           default_bump: patch
-          tag_prefix: meta-v
+          tag_prefix: ${{ github.event.inputs.dt_name }}-v
           release_branches: master
