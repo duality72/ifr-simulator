@@ -44,5 +44,6 @@ while True:
 		break
 	add_infected(party_sim)
 
+	
 print("Total simulation chance: {}".format(total_chance))
 print("Expected new infections: {}".format(expected_infections))
