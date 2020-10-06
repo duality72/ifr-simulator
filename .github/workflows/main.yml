@@ -33,7 +33,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: GitHub Tag
-        uses: duality72/github-tag-action
+        uses: duality72/github-tag-action@refs/heads/master
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           deployable_target: ${{ github.event.inputs.dt_name }}
