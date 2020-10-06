@@ -33,9 +33,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: GitHub Tag
-        uses: mathieudutour/github-tag-action@v4.6
+        uses: duality72/github-tag-action
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
-          default_bump: patch
-          tag_prefix: ${{ github.event.inputs.dt_name }}-v
-          release_branches: master
+          deployable_target: ${{ github.event.inputs.dt_name }}
