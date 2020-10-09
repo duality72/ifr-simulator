@@ -37,4 +37,3 @@ jobs:
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           deployable_target: ${{ github.event.inputs.dt_name }}
-          dry_run: true
