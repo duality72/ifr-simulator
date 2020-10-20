@@ -38,4 +38,5 @@ jobs:
           environment: stage-${{ github.event.inputs.dt_name }}
           ref: ${{ steps.tagging.outputs.new_tag }}
           initial_status: success
+          description: "${{ steps.tagging.outputs.new_tag }} deployed to stage"
 
