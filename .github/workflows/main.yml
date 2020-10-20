@@ -23,17 +23,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
       - name: GitHub Tag
         uses: duality72/github-tag-action@refs/heads/master
+        id: tagging
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           deployable_target: ${{ github.event.inputs.dt_name }}
+
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ secrets.REPO_TOKEN }}"
+          environment: stage-${{ github.event.inputs.dt_name }}
+          ref: ${{ steps.tagging.outputs.new_tag }}
+
