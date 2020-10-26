@@ -22,8 +22,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          repository: duality72/github-tag-action
 
       - name: GitHub Tag
         uses: duality72/github-tag-action@refs/heads/master
