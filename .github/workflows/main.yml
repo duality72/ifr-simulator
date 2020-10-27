@@ -27,14 +27,14 @@ jobs:
         uses: duality72/github-tag-action@refs/heads/master
         id: tagging
         with:
-          github_token: ${{ secrets.REPO_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           deployable_target: ${{ github.event.inputs.dt_name }}
 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
         id: deployment
         with:
-          token: "${{ secrets.REPO_TOKEN }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
           environment: stage-${{ github.event.inputs.dt_name }}
           ref: ${{ steps.tagging.outputs.new_tag }}
           initial_status: success
