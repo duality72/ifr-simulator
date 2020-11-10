@@ -22,9 +22,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: duality72/github-tag-action
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: .github/actions
 
       - name: GitHub Tag
-        uses: duality72/github-tag-action@refs/heads/master
+        uses: ./.github/actions/github-tag-action
         id: tagging
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
